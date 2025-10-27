@@ -40,17 +40,17 @@ jobs:
 
       - name: Initialize CodeQL
         if: steps.detect.outputs.has_code == 'true'
-        uses: github/codeql-action/init@2d92b76c45b91eb80fc44c74ce3fce0ee94e8f9d
+        uses: github/codeql-action/init@4e94bd11f71e507f7f87df81788dff88d1dacbfb
         with:
           languages: ${{ steps.detect.outputs.lang }}
 
       - name: Autobuild
         if: steps.detect.outputs.has_code == 'true'
-        uses: github/codeql-action/autobuild@2d92b76c45b91eb80fc44c74ce3fce0ee94e8f9d
+        uses: github/codeql-action/autobuild@4e94bd11f71e507f7f87df81788dff88d1dacbfb
 
       - name: Perform CodeQL Analysis
         if: steps.detect.outputs.has_code == 'true'
-        uses: github/codeql-action/analyze@2d92b76c45b91eb80fc44c74ce3fce0ee94e8f9d
+        uses: github/codeql-action/analyze@4e94bd11f71e507f7f87df81788dff88d1dacbfb
 
       - name: No supported code — skip CodeQL
         if: steps.detect.outputs.has_code != 'true'
